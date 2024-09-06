@@ -40,6 +40,7 @@
                 @endforeach
             </tbody>
         </table>
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary mb-3">Regresar al Dashboard</a> 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

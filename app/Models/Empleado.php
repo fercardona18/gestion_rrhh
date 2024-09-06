@@ -41,4 +41,9 @@ class Empleado extends Model
     {
         return $this->hasOne(Nomina::class);
     }
+    //relacion con vacaciones
+    public function vacaciones()
+{
+    return $this->hasMany(Vacacion::class);
+}
 }

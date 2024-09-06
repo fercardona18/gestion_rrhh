@@ -12,6 +12,8 @@
             <h1 class="text-center">Lista de Empleados</h1>
         </header>
 
+        <a href="{{ route('dashboard') }}" class="btn btn-secondary mb-3">Regresar al Dashboard</a>
+
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
@@ -44,6 +46,9 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                             </form>
+                            <a href="{{ route('vacaciones.create', $empleado->id) }}" class="btn btn-success btn-sm">
+                                Solicitar Vacaciones
+                            </a>
                         </td>
                     </tr>
                 @endforeach
