@@ -11,25 +11,50 @@
             display: flex;
             height: 100vh;
             overflow: hidden;
+            background-color: #f0f4f8; /* Color de fondo suave */
         }
         .sidebar {
             min-width: 250px;
-            background-color: #343a40;
+            background-color: #343a40; /* Color oscuro */
             color: white;
             padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para el sidebar */
+        }
+        .sidebar img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
         }
         .sidebar a {
             color: white;
             text-decoration: none;
+            transition: background-color 0.3s; /* Transición suave */
         }
         .sidebar a:hover {
+            background-color: #495057; /* Color al pasar el ratón */
             text-decoration: underline;
         }
         .content {
             flex-grow: 1;
             padding: 20px;
-            background-color: #f8f9fa;
+            background-color: #ffffff; /* Fondo blanco para el contenido */
             overflow-y: auto;
+            border-left: 1px solid #dee2e6; /* Línea divisoria */
+        }
+        .card {
+            border-radius: 10px; /* Bordes redondeados */
+            transition: transform 0.2s; /* Transición suave */
+        }
+        .card:hover {
+            transform: scale(1.02); /* Efecto de zoom al pasar el ratón */
+        }
+        .card-header {
+            background-color: #007bff; /* Color de fondo del encabezado */
+            color: white;
+            font-weight: bold;
+        }
+        .list-group-item {
+            background-color: #f8f9fa; /* Fondo claro para los elementos de la lista */
         }
     </style>
 </head>
@@ -37,16 +62,34 @@
     <div class="sidebar">
         <h2 class="text-center">Gestión de RRHH</h2>
         <div class="nav flex-column">
-            <a href="{{ route('empleados.index') }}" class="nav-item nav-link">Empleados</a>
-            <a href="{{ route('vacaciones.index') }}" class="nav-item nav-link">Vacaciones</a>
-            <a href="{{ route('nomina.index') }}" class="nav-item nav-link">Nómina</a>
-            <a href="{{ route('informacion.index') }}" class="nav-item nav-link">Información General</a>
+            <a href="{{ route('empleados.index') }}" class="nav-item nav-link">
+                <i class="fas fa-users"></i> Empleados
+            </a>
+            <a href="{{ route('vacaciones.index') }}" class="nav-item nav-link">
+                <i class="fas fa-plane"></i> Vacaciones
+            </a>
+            <a href="{{ route('nomina.index') }}" class="nav-item nav-link">
+                <i class="fas fa-money-bill-wave"></i> Nómina
+            </a>
+            <a href="{{ route('informacion.index') }}" class="nav-item nav-link">
+                <i class="fas fa-info-circle"></i> Información General
+            </a>
         </div>
     </div>
     <div class="content">
         <div class="container">
             <h1 class="text-center">Bienvenido al Dashboard</h1>
             <p class="text-center">Aquí puedes gestionar todos los aspectos de Recursos Humanos.</p>
+
+            <!-- Barra de búsqueda -->
+            <form method="GET" action="{{ route('dashboard') }}" class="mb-4">
+                <div class="input-group">
+                    <input type="date" name="fecha" class="form-control" placeholder="Buscar por fecha" value="{{ request('fecha') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Buscar</button>
+                    </div>
+                </div>
+            </form>
 
             <div class="row">
                 <!-- Cuadro de Responsabilidades -->
@@ -57,7 +100,7 @@
                         </div>
                         <div class="card-body">
                             @if ($responsabilidades->isEmpty())
-                                <p>No hay responsabilidades definidas.</p>
+                                <p>No hay responsabilidades definidas para la fecha seleccionada.</p>
                             @else
                                 @foreach ($responsabilidades as $responsabilidad)
                                     <strong>{{ $responsabilidad->titulo }}</strong>: {{ $responsabilidad->contenido }}<br>
@@ -75,7 +118,7 @@
                         </div>
                         <div class="card-body">
                             @if ($infoGeneral->isEmpty())
-                                <p>No hay información general definida.</p>
+                                <p>No hay información general definida para la fecha seleccionada.</p>
                             @else
                                 @foreach ($infoGeneral as $info)
                                     <strong>{{ $info->titulo }}</strong>: {{ $info->contenido }}<br>
@@ -93,11 +136,11 @@
                         </div>
                         <div class="card-body">
                             @if ($anuncios->isEmpty())
-                                <p>No hay anuncios disponibles.</p>
+                                <p>No hay anuncios disponibles para la fecha seleccionada.</p>
                             @else
-                                <ul>
+                                <ul class="list-group">
                                     @foreach ($anuncios as $anuncio)
-                                        <li>
+                                        <li class="list-group-item">
                                             <strong>{{ $anuncio->titulo }}</strong>: {{ $anuncio->contenido }}
                                         </li>
                                     @endforeach
