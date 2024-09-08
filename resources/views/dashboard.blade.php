@@ -74,12 +74,18 @@
             <a href="{{ route('informacion.index') }}" class="nav-item nav-link">
                 <i class="fas fa-info-circle"></i> Información General
             </a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-danger btn-block">
+            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                 @csrf
+            </form>
         </div>
     </div>
     <div class="content">
         <div class="container">
-            <h1 class="text-center">Bienvenido al Dashboard</h1>
-            <p class="text-center">Aquí puedes gestionar todos los aspectos de Recursos Humanos.</p>
+            <h1 class="text-center">Bienvenido a la gestión de RRHH</h1>
+            <p class="text-center">Comercial Mauricio</p>
 
             <!-- Barra de búsqueda -->
             <form method="GET" action="{{ route('dashboard') }}" class="mb-4">
