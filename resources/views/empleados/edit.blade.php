@@ -30,6 +30,10 @@
                 <input type="text" class="form-control" name="name" value="{{ $empleado->name }}" required>
             </div>
             <div class="form-group">
+                <label for="dpi">DPI:</label>
+                <input type="text" class="form-control" name="dpi" value="{{ $empleado->dpi }}" required>
+            </div>
+            <div class="form-group">
                 <label for="direccion">Dirección:</label>
                 <input type="text" class="form-control" name="direccion" value="{{ $empleado->direccion }}" required>
             </div>

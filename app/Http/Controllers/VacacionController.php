@@ -10,51 +10,59 @@ class VacacionController extends Controller
 {
     public function index()
     {
+        // Mostrar todas las solicitudes de vacaciones
         $vacaciones = Vacacion::with('empleado')->get();
         return view('vacaciones.index', compact('vacaciones'));
     }
 
-    public function create($empleadoId)
+    public function create($empleado_id)
     {
-        $empleado = Empleado::findOrFail($empleadoId);
+       
+        $empleado = Empleado::findOrFail($empleado_id); // Busca el empleado por ID
         return view('vacaciones.create', compact('empleado'));
+
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'fecha_inicio' => 'required|date',
-        'fecha_fin' => 'required|date|after_or_equal:fecha_inicio',
-        'empleado_id' => 'required|exists:empleados,id', // Asegúrate de que el empleado_id sea válido
-        'comentarios' => 'nullable|string|max:255', // Validación para comentarios
-    ]);
+    {
+        // Validar y guardar la solicitud de vacaciones
+        $request->validate([
+            'empleado_id' => 'required|exists:empleados,id',
+            'fecha_inicio' => 'required|date',
+            'fecha_fin' => 'required|date|after_or_equal:fecha_inicio',
+            'dias_solicitados' => 'required|integer',
+            'comentario' => 'nullable|string',
+        ]);
 
-    // Busca el empleado usando el ID enviado en la solicitud
-    $empleado = Empleado::findOrFail($request->empleado_id);
+        Vacacion::create($request->all());
 
-    // Crear la solicitud de vacaciones
-    Vacacion::create([
-        'empleado_id' => $empleado->id,
-        'fecha_inicio' => $request->fecha_inicio,
-        'fecha_fin' => $request->fecha_fin,
-        'estado' => 'pendiente', // Por defecto, el estado será 'pendiente'
-        'comentarios' => $request->comentarios, // Guardar comentarios
-    ]);
+        return redirect()->route('vacaciones.index')->with('success', 'Solicitud de vacaciones creada exitosamente.');
+    }
 
-    return redirect()->route('vacaciones.index')->with('success', 'Solicitud de vacaciones enviada.');
-}
+    // Métodos para aprobar/rechazar solicitudes...
+    public function approve($id)
+    {
+        $vacacion = Vacacion::findOrFail($id);
+        $empleado = $vacacion->empleado;
+    
+        // Descontar los días de vacaciones del saldo disponible del empleado
+        $empleado->dias_vacaciones_disponibles -= $vacacion->dias_solicitados;
+        $empleado->save();
+    
+        $vacacion->estado = 'aprobado';
+        $vacacion->save();
+    
+        return redirect()->route('vacaciones.index')->with('success', 'Solicitud de vacaciones aprobada.');
+    }
 
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'estado' => 'required|in:pendiente,autorizado,rechazado',
-    ]);
+    public function reject($id, Request $request)
+    {
+        $vacacion = Vacacion::findOrFail($id);
+        $vacacion->estado = 'rechazado';
+        $vacacion->comentario = $request->comentario; // Guardar el comentario de rechazo
+        $vacacion->save();
 
-    $vacacion = Vacacion::findOrFail($id);
-    $vacacion->estado = $request->estado;
-    $vacacion->save();
-
-    return redirect()->route('vacaciones.index')->with('success', 'Estado de la solicitud de vacaciones actualizado.');
-}
+        return redirect()->route('vacaciones.index')->with('success', 'Solicitud de vacaciones rechazada.');
+    }
 
 }

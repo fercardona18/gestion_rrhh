@@ -12,6 +12,7 @@ class Empleado extends Model
     // Especifica los atributos que se pueden asignar masivamente
     protected $fillable = [
         'name',
+        'dpi',
         'direccion',
         'telefono',
         'email',

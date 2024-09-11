@@ -23,41 +23,46 @@
                 <tr>
                     <th>ID</th>
                     <th>Empleado</th>
-                    <th>Cargo</th>
-                    <th>Fecha de Ingreso</th>
                     <th>Fecha de Inicio</th>
                     <th>Fecha de Fin</th>
+                    <th>Días Solicitados</th>
                     <th>Estado</th>
-                    <th>Comentarios</th>
+                    <th>Comentario</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($vacaciones as $vacacion)
-                    @php
-                        // Obtener los datos del empleado
-                        $empleado = $vacacion->empleado;
-                    @endphp
                     <tr>
                         <td>{{ $vacacion->id }}</td>
-                        <td>{{ $empleado->name }}</td>
-                        <td>{{ $empleado->puesto }}</td>
-                        <td>{{ $empleado->fecha_ingreso }}</td>
+                        <td>{{ $vacacion->empleado->name }}</td>
                         <td>{{ $vacacion->fecha_inicio }}</td>
                         <td>{{ $vacacion->fecha_fin }}</td>
-                        <td>{{ ucfirst($vacacion->estado) }}</td>
-                        <td>{{ $vacacion->comentarios }}</td>
+                        <td>{{ $vacacion->dias_solicitados }}</td>
                         <td>
-                            <form action="{{ route('vacaciones.update', $vacacion->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <select name="estado" class="form-select" required>
-                                    <option value="pendiente" {{ $vacacion->estado == 'pendiente' ? 'selected' : '' }}>Pendiente</option>
-                                    <option value="autorizado" {{ $vacacion->estado == 'autorizado' ? 'selected' : '' }}>Autorizado</option>
-                                    <option value="rechazado" {{ $vacacion->estado == 'rechazado' ? 'selected' : '' }}>Rechazado</option>
-                                </select>
-                                <button type="submit" class="btn btn-warning btn-sm">Actualizar Estado</button>
-                            </form>
+                            @if ($vacacion->estado == 'pendiente')
+                                <span class="badge badge-warning">Pendiente</span>
+                            @elseif ($vacacion->estado == 'aprobado')
+                                <span class="badge badge-success">Aprobado</span>
+                            @else
+                                <span class="badge badge-danger">Rechazado</span>
+                            @endif
+                        </td>
+                        <td>{{ $vacacion->comentario }}</td>
+                        <td>
+                            @if ($vacacion->estado == 'pendiente')
+                                <form action="{{ route('vacaciones.approve', $vacacion->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+                                </form>
+                                <form action="{{ route('vacaciones.reject', $vacacion->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    <input type="text" name="comentario" placeholder="Comentario" required>
+                                    <button type="submit" class="btn btn-danger btn-sm">Rechazar</button>
+                                </form>
+                            @else
+                                <span class="badge badge-secondary">No se puede modificar</span>
+                            @endif
                         </td>
                     </tr>
                 @endforeach

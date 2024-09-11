@@ -15,6 +15,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ $empleado->name }}</h5>
+                <p class="card-text"><strong>DPI:</strong> {{ $empleado->dpi }}</p>
                 <p class="card-text"><strong>Dirección:</strong> {{ $empleado->direccion }}</p>
                 <p class="card-text"><strong>Teléfono:</strong> {{ $empleado->telefono }}</p>
                 <p class="card-text"><strong>Email:</strong> {{ $empleado->email }}</p>

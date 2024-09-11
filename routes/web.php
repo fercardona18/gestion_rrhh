@@ -24,12 +24,16 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vacaciones', VacacionController::class);
     Route::get('/vacaciones/create/{empleadoId}', [VacacionController::class, 'create'])->name('vacaciones.create');
     Route::resource('informacion', InformacionGeneralController::class);
+
+   
 });
 
 // Rutas de autenticación
 Route::middleware(['guest'])->group(function () {
     Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('login', [AuthController::class, 'login']);
+    
 });
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+

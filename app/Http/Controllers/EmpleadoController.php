@@ -25,9 +25,10 @@ class EmpleadoController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'dpi' => 'required|string|unique:empleados,dpi|max:13', 
             'direccion' => 'required|string|max:255',
-            'telefono' => 'required|string|max:20',
-            'email' => 'required|email|unique:empleados|max:255',
+            'telefono' => 'required|string|max:15',
+            'email' => 'required|string|email|max:255|unique:empleados,email',
             'fecha_nacimiento' => 'required|date',
             'estado_civil' => 'required|string|max:50',
             'fecha_ingreso' => 'required|date',
@@ -82,17 +83,30 @@ class EmpleadoController extends Controller
     }
 
     // Actualiza la información de un empleado en la base de datos
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'direccion' => 'required|string|max:255',
-            'telefono' => 'required|string|max:20',
-            'email' => 'required|email|unique:empleados,email,' . $empleado->id . '|max:255',
-            'fecha_nacimiento' => 'required|date',
-            'estado_civil' => 'required|string|max:50',
-            'fecha_ingreso' => 'required|date',
-        ]);
+
+        // Buscar el empleado por ID
+    $empleado = Empleado::findOrFail($id);
+
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'dpi' => 'required|string|unique:empleados,dpi,'.$empleado->id.'|max:13', 
+        'direccion' => 'required|string|max:255',
+        'telefono' => 'required|string|max:15',
+        'email' => 'required|string|email|max:255|unique:empleados,email,'.$empleado->id,
+        'fecha_nacimiento' => 'required|date',
+        'estado_civil' => 'required|string|max:50',
+        'fecha_ingreso' => 'required|date',
+        'puesto' => 'nullable|string|max:100',
+        'departamento' => 'nullable|string|max:100',
+        'tipo_contrato' => 'nullable|string|max:50',
+        'salario_base' => 'nullable|numeric',
+        'experiencia_previa' => 'nullable|string',
+        'educacion' => 'nullable|string',
+        'certificaciones' => 'nullable|string',
+    ]);
+
 
         $empleado->update($validatedData); // Actualiza el empleado
 

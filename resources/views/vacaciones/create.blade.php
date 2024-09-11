@@ -34,8 +34,13 @@
                 <input type="date" class="form-control" name="fecha_fin" required>
             </div>
             <div class="form-group">
-                <label for="comentarios">Comentarios:</label>
-                <textarea class="form-control" name="comentarios" rows="3" placeholder="Escribe tus comentarios aquí..."></textarea>
+                <label for="dias_solicitados">Días Solicitados:</label>
+                <input type="number" class="form-control" name="dias_solicitados" min="1" max="{{ $empleado->dias_vacaciones_disponibles }}" required>
+                <small class="form-text text-muted">Tienes {{ $empleado->dias_vacaciones_disponibles }} días de vacaciones disponibles.</small>
+            </div>
+            <div class="form-group">
+                <label for="comentario">Comentario:</label>
+                <textarea class="form-control" name="comentario" rows="3" placeholder="Escribe tu comentario aquí..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
         </form>
