@@ -56,6 +56,10 @@
                 <label for="fecha_ingreso">Fecha de Ingreso:</label>
                 <input type="date" class="form-control" name="fecha_ingreso" required>
             </div>
+            <div class="form-group">
+                <label for="dias_vacaciones_disponibles">Días de Vacaciones Disponibles:</label>
+                <input type="number" class="form-control" name="dias_vacaciones_disponibles" value="15" min="0" required>
+            </div>
 
             <hr>
             <h4>Información de Empleo</h4>

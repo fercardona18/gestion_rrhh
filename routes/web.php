@@ -24,8 +24,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vacaciones', VacacionController::class);
     Route::get('/vacaciones/create/{empleadoId}', [VacacionController::class, 'create'])->name('vacaciones.create');
     Route::resource('informacion', InformacionGeneralController::class);
+    Route::post('vacaciones/{id}/approve', [VacacionController::class, 'approve'])->name('vacaciones.approve');
+    Route::post('vacaciones/{id}/reject', [VacacionController::class, 'reject'])->name('vacaciones.reject');
 
-   
 });
 
 // Rutas de autenticación
@@ -36,4 +37,5 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
 

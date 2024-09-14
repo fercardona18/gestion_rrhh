@@ -22,6 +22,7 @@
                 <p class="card-text"><strong>Fecha de Nacimiento:</strong> {{ $empleado->fecha_nacimiento }}</p>
                 <p class="card-text"><strong>Estado Civil:</strong> {{ $empleado->estado_civil }}</p>
                 <p class="card-text"><strong>Fecha de Ingreso:</strong> {{ $empleado->fecha_ingreso }}</p>
+                <p class="card-text"><strong>Dias de vacaciones disponibles:</strong> {{ $empleado->dias_vacaciones_disponibles }}</p>
 
                 <hr>
                 <h5>Empleos</h5>

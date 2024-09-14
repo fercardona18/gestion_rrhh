@@ -26,7 +26,7 @@
             @csrf
             <div class="form-group">
                 <label for="salario_base">Salario Base:</label>
-                <input type="number" class="form-control" name="salario_base" required>
+                <input type="number" class="form-control" name="salario_base" value="{{ $empleado->salario_base }}" readonly>
             </div>
             <div class="form-group">
                 <label for="horas_extras">Horas Extras:</label>
@@ -34,11 +34,11 @@
             </div>
             <div class="form-group">
                 <label for="deducciones">Deducciones:</label>
-                <input type="number" class="form-control" name="deducciones" value="0" required>
+                <input type="number" class="form-control" name="deducciones" value="{{ $empleado->salario_base * 0.1267 }}" readonly>
             </div>
             <div class="form-group">
                 <label for="bonificaciones">Bonificaciones:</label>
-                <input type="number" class="form-control" name="bonificaciones" value="0" required>
+                <input type="number" class="form-control" name="bonificaciones" value="250" readonly>
             </div>
             <div class="form-group">
                 <label for="prestaciones">Prestaciones:</label>

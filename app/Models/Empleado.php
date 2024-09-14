@@ -23,6 +23,7 @@ class Empleado extends Model
         'departamento',
         'tipo_contrato',
         'salario_base',
+        'dias_vacaciones_disponibles',
     ];
 
     // Relación uno a muchos con Empleo

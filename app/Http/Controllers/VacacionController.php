@@ -43,16 +43,16 @@ class VacacionController extends Controller
     public function approve($id)
     {
         $vacacion = Vacacion::findOrFail($id);
-        $empleado = $vacacion->empleado;
-    
-        // Descontar los días de vacaciones del saldo disponible del empleado
-        $empleado->dias_vacaciones_disponibles -= $vacacion->dias_solicitados;
-        $empleado->save();
-    
-        $vacacion->estado = 'aprobado';
-        $vacacion->save();
-    
-        return redirect()->route('vacaciones.index')->with('success', 'Solicitud de vacaciones aprobada.');
+    $empleado = $vacacion->empleado;
+
+    // Descontar los días de vacaciones del saldo disponible del empleado
+    $empleado->dias_vacaciones_disponibles -= $vacacion->dias_solicitados;
+    $empleado->save();
+
+    $vacacion->estado = 'aprobado';
+    $vacacion->save();
+
+    return redirect()->route('vacaciones.index')->with('success', 'Solicitud de vacaciones aprobada.');
     }
 
     public function reject($id, Request $request)

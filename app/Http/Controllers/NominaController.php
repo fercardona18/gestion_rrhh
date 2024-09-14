@@ -25,24 +25,37 @@ class NominaController extends Controller
 
     // Almacena una nueva nómina en la base de datos
     public function store(Request $request, $empleadoId)
-{
-    $validatedData = $request->validate([
-        'salario_base' => 'required|numeric',
-        'horas_extras' => 'nullable|numeric',
-        'deducciones' => 'nullable|numeric',
-        'bonificaciones' => 'nullable|numeric',
-        'prestaciones' => 'nullable|numeric',
-    ]);
-
-    // Encuentra el empleado relacionado
-    $empleado = Empleado::findOrFail($empleadoId);
-
-    // Crea la nómina asociada al empleado
-    $nomina = $empleado->nomina()->create(array_merge($validatedData, ['empleado_id' => $empleado->id]));
-
-    return redirect()->route('nomina.index', $empleado->id)
-                     ->with('success', 'Nómina creada exitosamente.');
-}
+    {
+        $validatedData = $request->validate([
+            'horas_extras' => 'nullable|numeric|min:0',
+            'prestaciones' => 'nullable|numeric|min:0',
+        ]);
+    
+        // Encuentra el empleado relacionado
+        $empleado = Empleado::findOrFail($empleadoId);
+    
+        // Calcular salario base, deducciones y bonificación
+        $salario_base = $empleado->salario_base;
+        $deducciones = $salario_base * 0.1267; // 12.67% del salario base
+        $bonificacion = 250;
+    
+        // Calcular total a pagar
+        $horas_extras = $validatedData['horas_extras'] ?? 0;
+        $total_a_pagar = $salario_base + ($horas_extras * ($salario_base / 240)) + $bonificacion - $deducciones + ($validatedData['prestaciones'] ?? 0);
+    
+        // Crea la nómina asociada al empleado
+        $nomina = $empleado->nomina()->create([
+            'salario_base' => $salario_base,
+            'horas_extras' => $horas_extras,
+            'deducciones' => $deducciones,
+            'bonificacion' => $bonificacion,
+            'prestaciones' => $validatedData['prestaciones'] ?? 0,
+            'total_a_pagar' => $total_a_pagar,
+        ]);
+    
+        return redirect()->route('nomina.index', $empleado->id)
+                         ->with('success', 'Nómina creada exitosamente.');
+    }
 
     // Muestra el formulario para editar una nómina existente
     public function edit(Nomina $nomina)
