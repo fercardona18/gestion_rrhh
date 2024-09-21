@@ -33,13 +33,7 @@ class EmpleadoController extends Controller
             'estado_civil' => 'required|string|max:50',
             'fecha_ingreso' => 'required|date',
             'dias_vacaciones_disponibles' => 'required|integer|min:0',
-            'puesto' => 'nullable|string|max:100',
-            'departamento' => 'nullable|string|max:100',
-            'tipo_contrato' => 'nullable|string|max:50',
-            'salario_base' => 'nullable|numeric',
-            'experiencia_previa' => 'nullable|string',
-            'educacion' => 'nullable|string',
-            'certificaciones' => 'nullable|string',
+            
         ]);
     
         // Crea el nuevo empleado

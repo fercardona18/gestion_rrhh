@@ -9,7 +9,7 @@ class HistorialLaboral extends Model
 {
     use HasFactory;
 
-    protected $table = 'historial_laboral'; 
+    protected $table = 'historial_laboral'; // Asegúrate de que esto coincide con el nombre de la tabla
 
     protected $fillable = [
         'empleo_id',

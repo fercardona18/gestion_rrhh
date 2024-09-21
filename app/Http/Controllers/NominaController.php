@@ -20,42 +20,55 @@ class NominaController extends Controller
     public function create($empleadoId)
     {
         $empleado = Empleado::findOrFail($empleadoId);
-        return view('nomina.create', compact('empleado'));
+        // Encuentra el empleo relacionado si es necesario
+    $empleo = Empleo::where('empleado_id', $empleadoId)->first();
+    return view('nomina.create', compact('empleado','empleo'));
     }
 
-    // Almacena una nueva nómina en la base de datos
-    public function store(Request $request, $empleadoId)
-    {
-        $validatedData = $request->validate([
-            'horas_extras' => 'nullable|numeric|min:0',
-            'prestaciones' => 'nullable|numeric|min:0',
-        ]);
-    
-        // Encuentra el empleado relacionado
-        $empleado = Empleado::findOrFail($empleadoId);
-    
-        // Calcular salario base, deducciones y bonificación
-        $salario_base = $empleado->salario_base;
-        $deducciones = $salario_base * 0.1267; // 12.67% del salario base
-        $bonificacion = 250;
-    
-        // Calcular total a pagar
-        $horas_extras = $validatedData['horas_extras'] ?? 0;
-        $total_a_pagar = $salario_base + ($horas_extras * ($salario_base / 240)) + $bonificacion - $deducciones + ($validatedData['prestaciones'] ?? 0);
-    
-        // Crea la nómina asociada al empleado
-        $nomina = $empleado->nomina()->create([
-            'salario_base' => $salario_base,
-            'horas_extras' => $horas_extras,
-            'deducciones' => $deducciones,
-            'bonificacion' => $bonificacion,
-            'prestaciones' => $validatedData['prestaciones'] ?? 0,
-            'total_a_pagar' => $total_a_pagar,
-        ]);
-    
-        return redirect()->route('nomina.index', $empleado->id)
-                         ->with('success', 'Nómina creada exitosamente.');
-    }
+   // Almacena una nueva nómina en la base de datos
+   public function store(Request $request, $empleadoId)
+   {
+       // Validar los datos del formulario
+       $validatedData = $request->validate([
+           'horas_extras' => 'nullable|numeric|min:0',
+           'prestaciones' => 'nullable|numeric|min:0',
+           'empleo_id' => 'required|exists:empleos,id', // Asegúrate de validar empleo_id
+       ]);
+   
+       // Encuentra el empleado relacionado
+       $empleado = Empleado::findOrFail($empleadoId);
+   
+       // Encuentra el empleo relacionado
+       $empleo = Empleo::findOrFail($validatedData['empleo_id']); // Obtener el empleo usando el empleo_id
+   
+       // Calcular salario base, deducciones y bonificación
+       $salario_base = $empleo->salario_base; // Tomar el salario base del empleo
+       if (is_null($salario_base)) {
+           return redirect()->back()->withErrors(['salario_base' => 'El salario base no puede ser nulo.']);
+       }
+   
+       $deducciones = $salario_base * 0.1267; // 12.67% del salario base
+       $bonificacion = 250;
+   
+       // Calcular total a pagar
+       $horas_extras = $validatedData['horas_extras'] ?? 0;
+       $total_a_pagar = $salario_base + ($horas_extras * ($salario_base / 240)) + $bonificacion - $deducciones + ($validatedData['prestaciones'] ?? 0);
+   
+       // Crea la nómina asociada al empleado
+       Nomina::create([
+           'salario_base' => $salario_base,
+           'horas_extras' => $horas_extras,
+           'deducciones' => $deducciones,
+           'bonificaciones' => $bonificacion,
+           'prestaciones' => $validatedData['prestaciones'] ?? 0,
+           'empleado_id' => $empleado->id,
+           'empleo_id' => $validatedData['empleo_id'],
+           'total_a_pagar' => $total_a_pagar, // Almacena el total a pagar si es necesario
+       ]);
+   
+       return redirect()->route('nomina.index', $empleado->id)
+                        ->with('success', 'Nómina creada exitosamente.');
+   }
 
     // Muestra el formulario para editar una nómina existente
     public function edit(Nomina $nomina)

@@ -38,6 +38,7 @@ class Empleado extends Model
         return $this->hasOne(HistorialLaboral::class);
     }
 
+
     // Relación uno a uno con Nomina
     public function nomina()
     {

@@ -12,12 +12,14 @@ class Nomina extends Model
     protected $table = 'nomina'; 
 
     protected $fillable = [
-        'empleado_id', 
+        'empleado_id',
+        'empleo_id',
         'salario_base',
         'horas_extras',
         'deducciones',
         'bonificaciones',
         'prestaciones',
+        'total_a_pagar',
     ];
 
     public function empleado()
