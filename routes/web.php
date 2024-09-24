@@ -27,6 +27,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('vacaciones/{id}/approve', [VacacionController::class, 'approve'])->name('vacaciones.approve');
     Route::post('vacaciones/{id}/reject', [VacacionController::class, 'reject'])->name('vacaciones.reject');
 
+    Route::get('/', function () {
+        return redirect('/login'); // Redirige a /login al acceder a la raíz.
+    });
+
 });
 
 // Rutas de autenticación
