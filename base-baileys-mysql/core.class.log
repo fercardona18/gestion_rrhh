@@ -2,76 +2,30 @@
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F33FE151F203B83F281',
+    id: '3FDBD0CD2161CC783EBE',
     participant: undefined
   },
-  messageTimestamp: 1728359794,
+  messageTimestamp: 1728361614,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'qué pedo?',
-      contextInfo: [ContextInfo]
-    },
+    extendedTextMessage: ExtendedTextMessage { text: 'va', contextInfo: [ContextInfo] },
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'qué pedo?',
+  body: 'va',
   from: '50257341396'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3FAED576E32A7D382FD7',
+    id: '3FF3226CA31A611847A0',
     participant: undefined
   },
-  messageTimestamp: 1728359796,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage { text: 'ah voy', contextInfo: [ContextInfo] },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'ah voy',
-  from: '50257341396'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3F7EB2E307AEC3288CDB',
-    participant: undefined
-  },
-  messageTimestamp: 1728359816,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'sistema recursos humanos',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'sistema recursos humanos',
-  from: '50257341396'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3FC284682276B3A25693',
-    participant: undefined
-  },
-  messageTimestamp: 1728359823,
+  messageTimestamp: 1728361620,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -88,8 +42,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_acc38d3f-c468-42da-91e2-b4cad3e6909e',
-  keyword: 'key_fab20f6f-76fd-4e2e-bb70-7a6279db7408',
+  ref: 'ans_0e09aeb7-70bb-47fb-8ab0-7481169e6e8e',
+  keyword: 'key_3fb432e7-376c-4724-865f-317a408e6b6e',
   answer: '🙌 Hola, bienvenido al sistema de Recursos Humanos',
   options: {
     media: null,
@@ -103,11 +57,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: 'a8e120a2ad3c18efc5a0a24bc1bda16a'
+  refSerialize: '9848de63ed76ee1e312c25f824000069'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_fd26ec80-3e85-4872-be3e-daa19da5d697',
-  keyword: 'ans_acc38d3f-c468-42da-91e2-b4cad3e6909e',
+  ref: 'ans_8f268323-28ce-4d6b-b3d8-96fc038e0837',
+  keyword: 'ans_0e09aeb7-70bb-47fb-8ab0-7481169e6e8e',
   answer: '\n' +
     'Selecciona una opción:\n' +
     '👉 *info personal* para ver tu información personal\n' +
@@ -126,16 +80,16 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '1b834dfb53b070304d03866a16abd5d7'
+  refSerialize: '920610bd20ed2f15321c6b78bfbeb7d7'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3FBC2A694BDCBECC6B40',
+    id: '3FCF767D41EEECFA4A8E',
     participant: undefined
   },
-  messageTimestamp: 1728359825,
+  messageTimestamp: 1728361626,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -152,8 +106,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1a37cc4f-1c11-4e5e-8dec-333d7d0dc80c',
-  keyword: 'key_df16481f-0ef9-4bd1-b1ea-7eab772b72f4',
+  ref: 'ans_6d6f1643-a765-44b0-9fec-68bd9adbb2ba',
+  keyword: 'key_0096e5a2-3672-4a20-991e-f07c9ac175cd',
   answer: '📋 Aquí puedes consultar tu información personal.',
   options: {
     media: null,
@@ -167,11 +121,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '4e5e6371d4e107b7effb9ce87a73c5d3'
+  refSerialize: '11d0baa3476b08432e5c3935917ac774'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_210b9e90-77c6-4ad2-8db4-e7b197b0f0e0',
-  keyword: 'ans_1a37cc4f-1c11-4e5e-8dec-333d7d0dc80c',
+  ref: 'ans_74ae0c95-e5e8-42e2-9f4e-1e05945fd315',
+  keyword: 'ans_6d6f1643-a765-44b0-9fec-68bd9adbb2ba',
   answer: '📧 Por favor, proporciona tu correo electrónico para continuar.',
   options: {
     media: null,
@@ -185,16 +139,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'e450c99e05b0622ebc2eda9c9d78f18c'
+  refSerialize: '301dbc08fb00158e3578730466598042'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F3325A9ACAF941974A8',
+    id: '3F123F9288A006C8FA19',
     participant: undefined
   },
-  messageTimestamp: 1728359841,
+  messageTimestamp: 1728361634,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -211,8 +165,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_c8ac5ffb-099e-4e46-b720-701102bc4283',
-  keyword: 'ans_210b9e90-77c6-4ad2-8db4-e7b197b0f0e0',
+  ref: 'ans_36ef9441-42c9-4180-868c-0d7785205e67',
+  keyword: 'ans_74ae0c95-e5e8-42e2-9f4e-1e05945fd315',
   answer: '🔑 Ingresa tu contraseña:',
   options: {
     media: null,
@@ -226,16 +180,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'eae7b926285f7db075d65ef35a90dba8'
+  refSerialize: 'cc6315839a794868ed91748693aeb23e'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F4D81A129D19D365E04',
+    id: '3F5BFC4C674D17C78AC9',
     participant: undefined
   },
-  messageTimestamp: 1728359852,
+  messageTimestamp: 1728361641,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -255,10 +209,10 @@
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F6D240E10DBFA8DBBE0',
+    id: '3F2D659A6F4D69EBD3D0',
     participant: undefined
   },
-  messageTimestamp: 1728359869,
+  messageTimestamp: 1728361654,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -272,8 +226,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_71b7ee21-aac9-45fc-bdcb-06b5caa4bb7d',
-  keyword: 'key_a1df160e-743a-49b5-a4a7-5d0375efeca2',
+  ref: 'ans_2880d964-917f-4469-970d-8696b4563f73',
+  keyword: 'key_9724f781-4208-4cf5-a599-e229dbb45092',
   answer: '💰 Aquí puedes consultar tu nómina.',
   options: {
     media: null,
@@ -287,11 +241,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '9cfe81449dd7ca651e65e6ff1378fbc7'
+  refSerialize: '790eec9c6945bbb1a3112e0b7be05c63'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b1280d15-8de1-43b3-9ec2-e4a1741f6150',
-  keyword: 'ans_71b7ee21-aac9-45fc-bdcb-06b5caa4bb7d',
+  ref: 'ans_19403b54-a4d6-4e18-bdbb-6f5195168cc4',
+  keyword: 'ans_2880d964-917f-4469-970d-8696b4563f73',
   answer: '📧 Por favor, proporciona tu correo electrónico para continuar.',
   options: {
     media: null,
@@ -305,16 +259,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'd8cc870a419ef9a6b6d709cc29d45d85'
+  refSerialize: 'b13cf4c40aed82cce42d9c3c7470f944'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F9DA5A4554D0D142AFC',
+    id: '3F31A0993E61A10207A7',
     participant: undefined
   },
-  messageTimestamp: 1728359877,
+  messageTimestamp: 1728361659,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -331,8 +285,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_3ca43522-fa44-4fca-97e6-5e62850e7c6f',
-  keyword: 'ans_b1280d15-8de1-43b3-9ec2-e4a1741f6150',
+  ref: 'ans_5d114f53-ce2c-4961-b8d4-d3e21fc26af2',
+  keyword: 'ans_19403b54-a4d6-4e18-bdbb-6f5195168cc4',
   answer: '🔑 Ingresa tu contraseña:',
   options: {
     media: null,
@@ -346,16 +300,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '134b56087550941a5017c3ff8b03e4a4'
+  refSerialize: '70c2054a0c414c4ec718a1d816c8dc8e'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3FF0FBA79773D2457617',
+    id: '3FC6C82B41990F9C829A',
     participant: undefined
   },
-  messageTimestamp: 1728359886,
+  messageTimestamp: 1728361666,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -368,17 +322,38 @@
       deviceListMetadataVersion: 2
     }
   },
+  status: 4,
   body: '31107910',
   from: '50257341396'
 }
 [handleMsg]:  {
   key: {
-    remoteJid: '50257341396@s.whatsapp.net',
+    remoteJid: '50249590158@s.whatsapp.net',
     fromMe: false,
-    id: '3F3A8C58DAA15D161DE7',
+    id: '3EB085AFAA792596FCBFA1',
     participant: undefined
   },
-  messageTimestamp: 1728360032,
+  messageTimestamp: 1728361667,
+  pushName: 'Ab',
+  broadcast: false,
+  message: Message {
+    conversation: 'simon',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'simon',
+  from: '50249590158'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '50257341396@s.whatsapp.net',
+    fromMe: false,
+    id: '3F65B0EB967A72EE4F2A',
+    participant: undefined
+  },
+  messageTimestamp: 1728361672,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -395,8 +370,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_dd28e026-b431-4e15-9ecc-2c03f45d2d21',
-  keyword: 'key_7bac209f-8a1c-4598-85ed-d2fdbe811ff9',
+  ref: 'ans_96ddd72b-6542-48cd-8733-37e794050a7e',
+  keyword: 'key_4bfde63d-14f0-4c2f-a05f-5c74e53fd501',
   answer: '🌴 Aquí puedes verificar tus vacaciones.',
   options: {
     media: null,
@@ -410,11 +385,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '2d9eda8f98912796c60fcb74d99510d8'
+  refSerialize: '98e499187e12e10ab210f1c031c42288'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_53bd9686-21a6-442b-9750-475ef62ed638',
-  keyword: 'ans_dd28e026-b431-4e15-9ecc-2c03f45d2d21',
+  ref: 'ans_17f7e223-7481-47b1-8a0b-48f149774724',
+  keyword: 'ans_96ddd72b-6542-48cd-8733-37e794050a7e',
   answer: '📧 Por favor, proporciona tu correo electrónico para continuar.',
   options: {
     media: null,
@@ -428,16 +403,36 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '53fd900d66a368171b5985fc99d6a7d7'
+  refSerialize: 'd9765f3a7b5773290ae10fa0ef5bcc57'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '50249590158@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB02C2E290EC4B1937C51',
+    participant: undefined
+  },
+  messageTimestamp: 1728361675,
+  pushName: 'Ab',
+  broadcast: false,
+  message: Message {
+    conversation: 'mandame el link de tu repo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'mandame el link de tu repo',
+  from: '50249590158'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3FFAA6F5A76719F1379D',
+    id: '3F7385905B5F1ECF9468',
     participant: undefined
   },
-  messageTimestamp: 1728360066,
+  messageTimestamp: 1728361677,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -454,8 +449,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f53cac4a-2d12-4f4d-8722-3aa7dafa9a16',
-  keyword: 'ans_53bd9686-21a6-442b-9750-475ef62ed638',
+  ref: 'ans_3b844a04-02cc-4b20-b963-8abde8f837ed',
+  keyword: 'ans_17f7e223-7481-47b1-8a0b-48f149774724',
   answer: '🔑 Ingresa tu contraseña:',
   options: {
     media: null,
@@ -469,16 +464,16 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'b5ae1fc2e1e963eab6993e971a0bac23'
+  refSerialize: '794baca45f0f97a132c6b4d1459de0e4'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F1DCCE97FCC30DC466B',
+    id: '3F181A1023B356058D85',
     participant: undefined
   },
-  messageTimestamp: 1728360071,
+  messageTimestamp: 1728361683,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -498,179 +493,10 @@
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3F118AC1B49443005CFB',
+    id: '3FA2D3D34BBC6BDB5F00',
     participant: undefined
   },
-  messageTimestamp: 1728360114,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'info personal',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'info personal',
-  from: '50257341396'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1a37cc4f-1c11-4e5e-8dec-333d7d0dc80c',
-  keyword: 'key_df16481f-0ef9-4bd1-b1ea-7eab772b72f4',
-  answer: '📋 Aquí puedes consultar tu información personal.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '4e5e6371d4e107b7effb9ce87a73c5d3'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_210b9e90-77c6-4ad2-8db4-e7b197b0f0e0',
-  keyword: 'ans_1a37cc4f-1c11-4e5e-8dec-333d7d0dc80c',
-  answer: '📧 Por favor, proporciona tu correo electrónico para continuar.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: 'e450c99e05b0622ebc2eda9c9d78f18c'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3FB159BF9533B4AE9806',
-    participant: undefined
-  },
-  messageTimestamp: 1728360119,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'fernando77@gmail.com',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'fernando77@gmail.com',
-  from: '50257341396'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_c8ac5ffb-099e-4e46-b720-701102bc4283',
-  keyword: 'ans_210b9e90-77c6-4ad2-8db4-e7b197b0f0e0',
-  answer: '🔑 Ingresa tu contraseña:',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    idle: null,
-    ref: null,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: 'eae7b926285f7db075d65ef35a90dba8'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3F6964C24166AA1935C9',
-    participant: undefined
-  },
-  messageTimestamp: 1728360126,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'elgordoesregei',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'elgordoesregei',
-  from: '50257341396'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3F24DE13089558559C21',
-    participant: undefined
-  },
-  messageTimestamp: 1728360134,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'algordolegustaelpito',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'algordolegustaelpito',
-  from: '50257341396'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3F58901408A93EB925E6',
-    participant: undefined
-  },
-  messageTimestamp: 1728360163,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: '31107910',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '31107910',
-  from: '50257341396'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3F0DA1FF3641AB4FF631',
-    participant: undefined
-  },
-  messageTimestamp: 1728360165,
+  messageTimestamp: 1728361695,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
@@ -684,8 +510,8 @@
   from: '50257341396'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cb2d726f-fe99-420b-b1e3-0c5a4f7e2ef4',
-  keyword: 'key_b4334d00-2a9b-464f-b806-bec7ea181c55',
+  ref: 'ans_408c98f7-976c-47db-90f9-522a3477a032',
+  keyword: 'key_ee8df321-b019-4360-9df9-52e53cfc5a05',
   answer: 'Gracias por usar nuestro sistema de Recursos Humanos. ¡Hasta pronto! 👋',
   options: {
     media: null,
@@ -699,11 +525,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '2566378d767009f95f18506d089118ad'
+  refSerialize: '74c1b793eb69d42da63c6652a778373c'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_42ca3319-71b0-4479-8686-50decd653614',
-  keyword: 'ans_cb2d726f-fe99-420b-b1e3-0c5a4f7e2ef4',
+  ref: 'ans_0a421490-f906-477c-9990-cee78cc063cd',
+  keyword: 'ans_408c98f7-976c-47db-90f9-522a3477a032',
   answer: '__call_action__',
   options: {
     media: null,
@@ -717,51 +543,25 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'd4a110d2c7b51122da3ef26732f73f41'
+  refSerialize: '27ae3b1277e161bf70a75928ea163fb8'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '50257341396@s.whatsapp.net',
     fromMe: false,
-    id: '3FB2A0C63599C58F1C7A',
+    id: '3F6303BCFC0FFEE29323',
     participant: undefined
   },
-  messageTimestamp: 1728360276,
+  messageTimestamp: 1728361698,
   pushName: 'E.L.',
   broadcast: false,
   message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'al fin terminaste jajajajaja',
-      contextInfo: [ContextInfo]
-    },
+    extendedTextMessage: ExtendedTextMessage { text: 'ya XD', contextInfo: [ContextInfo] },
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'al fin terminaste jajajajaja',
-  from: '50257341396'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '50257341396@s.whatsapp.net',
-    fromMe: false,
-    id: '3F613409D1141D828FBB',
-    participant: undefined
-  },
-  messageTimestamp: 1728360279,
-  pushName: 'E.L.',
-  broadcast: false,
-  message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'ya era hora XD',
-      contextInfo: [ContextInfo]
-    },
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'ya era hora XD',
+  body: 'ya XD',
   from: '50257341396'
 }

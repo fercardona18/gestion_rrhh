@@ -76,7 +76,7 @@ async function validarContraseña(email, password) {
 
 async function obtenerDatosNominaPorEmpleadoId(empleadoId) {
     try {
-        const [filas] = await connection.execute('SELECT * FROM nominas WHERE empleado_id = ?', [empleadoId]);
+        const [filas] = await connection.execute('SELECT * FROM nominas WHERE empleo_id = ?', [empleadoId]);
         return filas.length > 0 ? filas[0] : null;
     } catch (error) {
         console.error('Error al obtener datos de nómina:', error);
