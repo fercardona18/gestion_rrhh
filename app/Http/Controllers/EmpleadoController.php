@@ -33,11 +33,23 @@ class EmpleadoController extends Controller
             'estado_civil' => 'required|string|max:50',
             'fecha_ingreso' => 'required|date',
             'dias_vacaciones_disponibles' => 'required|integer|min:0',
-            
+            'password' => 'required|string|min:8', // Asegúrate de que la contraseña sea segura
         ]);
     
-        // Crea el nuevo empleado
-        $empleado = Empleado::create($validatedData);
+        // Crea el nuevo empleado sin encriptar la contraseña
+        $empleado = Empleado::create([
+            'name' => $validatedData['name'],
+            'dpi' => $validatedData['dpi'],
+            'direccion' => $validatedData['direccion'],
+            'telefono' => $validatedData['telefono'],
+            'email' => $validatedData['email'],
+            'fecha_nacimiento' => $validatedData['fecha_nacimiento'],
+            'estado_civil' => $validatedData['estado_civil'],
+            'fecha_ingreso' => $validatedData['fecha_ingreso'],
+            'dias_vacaciones_disponibles' => $validatedData['dias_vacaciones_disponibles'],
+            // Almacena la contraseña directamente sin hash
+            'password' => $validatedData['password'], 
+        ]);
     
         // Si se proporcionó información de empleo, crea el registro de empleo
         if ($request->filled('puesto')) {
@@ -65,11 +77,11 @@ class EmpleadoController extends Controller
 
     // Muestra los detalles de un empleado específico
     public function show(Empleado $empleado)
-{
-    // Carga los empleos y el historial laboral del empleado
-    $empleado->load('empleos', 'historialLaboral');
-    return view('empleados.show', compact('empleado'));
-}
+    {
+        // Carga los empleos y el historial laboral del empleado
+        $empleado->load('empleos', 'historialLaboral');
+        return view('empleados.show', compact('empleado'));
+    }
 
     // Muestra el formulario para editar un empleado existente
     public function edit(Empleado $empleado)
@@ -80,29 +92,27 @@ class EmpleadoController extends Controller
     // Actualiza la información de un empleado en la base de datos
     public function update(Request $request, $id)
     {
-
         // Buscar el empleado por ID
-    $empleado = Empleado::findOrFail($id);
+        $empleado = Empleado::findOrFail($id);
 
-    $validatedData = $request->validate([
-        'name' => 'required|string|max:255',
-        'dpi' => 'required|string|unique:empleados,dpi,'.$empleado->id.'|max:13', 
-        'direccion' => 'required|string|max:255',
-        'telefono' => 'required|string|max:15',
-        'email' => 'required|string|email|max:255|unique:empleados,email,'.$empleado->id,
-        'fecha_nacimiento' => 'required|date',
-        'estado_civil' => 'required|string|max:50',
-        'dias_vacaciones_disponibles' => 'required|integer|min:0',
-        'fecha_ingreso' => 'required|date',
-        'puesto' => 'nullable|string|max:100',
-        'departamento' => 'nullable|string|max:100',
-        'tipo_contrato' => 'nullable|string|max:50',
-        'salario_base' => 'nullable|numeric',
-        'experiencia_previa' => 'nullable|string',
-        'educacion' => 'nullable|string',
-        'certificaciones' => 'nullable|string',
-    ]);
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'dpi' => 'required|string|unique:empleados,dpi,'.$empleado->id.'|max:13', 
+            'direccion' => 'required|string|max:255',
+            'telefono' => 'required|string|max:15',
+            'email' => 'required|string|email|max:255|unique:empleados,email,'.$empleado->id,
+            'fecha_nacimiento' => 'required|date',
+            'estado_civil' => 'required|string|max:50',
+            'dias_vacaciones_disponibles' => 'required|integer|min:0',
+            'fecha_ingreso' => 'required|date',
+            // Otros campos según sea necesario...
+        ]);
 
+        // Actualiza el empleado sin cambiar la contraseña si no se proporciona una nueva
+        if ($request->filled('password')) {
+            // Solo actualizar la contraseña si se proporciona una nueva
+            $validatedData['password'] = $request->password; 
+        }
 
         $empleado->update($validatedData); // Actualiza el empleado
 

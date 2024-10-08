@@ -84,7 +84,7 @@
     </div>
     <div class="content">
         <div class="container">
-            <h1 class="text-center">Bienvenido a la gestión de RRHH</h1>
+            <h1 class="text-center">Bienvenido a la gestión de Empleados</h1>
             <p class="text-center">Comercial Mauricio</p>
 
             <!-- Barra de búsqueda -->

@@ -33,6 +33,10 @@
                 <input type="text" class="form-control" name="dpi" required>
             </div>
             <div class="form-group">
+                <label for="password">Contraseña de empleado:</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <div class="form-group">
                 <label for="direccion">Dirección:</label>
                 <input type="text" class="form-control" name="direccion" required>
             </div>
